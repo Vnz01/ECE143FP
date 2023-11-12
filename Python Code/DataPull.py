@@ -4,7 +4,23 @@ import pandas
 import csv
 
 data = []
-country = 'United Kingdom'
+possibleCountry = []
+country = ''
+
+with open('../Downloaded Database/monthly.csv','r') as monthlyCSV:
+    csv_reader = csv.reader(monthlyCSV)
+    for row in csv_reader:
+        if(row[1] not in possibleCountry):
+            if(row[1] != 'Country'):
+                possibleCountry.append(row[1])
+monthlyCSV.close()
+
+for i in possibleCountry:
+    print(i)
+print(' ')
+print('Enter a Country:')
+while country not in possibleCountry:
+    country = input()
 
 with open('../Downloaded Database/monthly.csv','r') as monthlyCSV:
     csv_reader = csv.reader(monthlyCSV)
