@@ -141,6 +141,9 @@ for i in range(len(exchange_rates)):
 
 filtered_data = [(date, rate) for date, rate in zip(dates, exchange_rates) if start_date <= date <= end_date]
 
+if not filtered_data:
+    raise ValueError("No data found for the specified date range.")
+
 dates, exchange_rates = zip(*filtered_data)
 #Plot code
 fig, ax = plt.subplots()
