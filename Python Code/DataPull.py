@@ -6,6 +6,13 @@ import re
 from datetime import datetime, timedelta
 
 def dateValidation(date_str, dayMonth):
+    '''
+    Function that takes in a string and int. It checks if the date string is in proper format or not
+
+    Parameters: date1_str string and dayMonth int
+
+    Return: bool T or F
+    '''
     pattern = re.compile(r'^\d{4}-\d{2}-\d{2}$')
     
     if not bool(pattern.match(date_str)):
@@ -23,16 +30,20 @@ def dateValidation(date_str, dayMonth):
         return False  # Invalid date
 
 def monthApart(date1_str, date2_str):
+    '''
+    Function that takes in two formatted date string and check if they are a month apart
+
+    Parameters: date1_str and date2_str of type string
+
+    Return: bool T or F
+    '''
     date_format = "%Y-%m-%d"
 
-    # Parse the input strings into datetime objects
     date1 = datetime.strptime(date1_str, date_format)
     date2 = datetime.strptime(date2_str, date_format)
 
-    # Calculate the difference in months
     month_difference = (date2.year - date1.year) * 12 + date2.month - date1.month
 
-    # Check if the difference is exactly 1
     return abs(month_difference) == 1
 
 data = []
@@ -44,6 +55,7 @@ looper1 = False
 looper2 = False
 looper3 = False
 
+# User Interface to check which file to open
 print("1. Monthly")
 print("2. Daily")
 while(fileOpen != "1" and fileOpen != "2"):
@@ -51,11 +63,13 @@ while(fileOpen != "1" and fileOpen != "2"):
     fileOpen = input()
     print(" ")
 
+# Sets values to fileString
 if(fileOpen == "1"):
     fileString = "monthly"
 elif(fileOpen == "2"):
     fileString = "daily"
 
+# Opens corresponding file
 with open(f'../Downloaded Database/{fileString}.csv','r') as fileCSV:
     csv_reader = csv.reader(fileCSV)
 
@@ -91,6 +105,7 @@ while(filt != "1" and filt != "2"):
     filt = input()
     print(" ")
 
+# Ask user to filter dates or not
 if(filt == "1"):
     start_date = "1971-01-01" if fileOpen == "1" else "1971-01-04"
     end_date = "2017-12-01"
@@ -145,6 +160,7 @@ if not filtered_data:
     raise ValueError("No data found for the specified date range.")
 
 dates, exchange_rates = zip(*filtered_data)
+
 #Plot code
 fig, ax = plt.subplots()
 
