@@ -77,9 +77,7 @@ fig, ax = plt.subplots()
 
 dataLabel = 'EUR TO USD EXCHANGE RATE'
 
-ax.plot(date, rate, label=dataLabel, marker='o')
-
-ax.yaxis.set_major_locator(plt.MaxNLocator(5))
+ax.plot(date, rate, label=dataLabel, marker='')
 
 num_ticks = 10
 

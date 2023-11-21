@@ -42,7 +42,7 @@ fig, ax = plt.subplots()
 
 country = chosenCountry + ' Exchange Rate with USD (Quarterly)' 
 
-ax.plot(dates, exchange_rates, label=country, marker='o')
+ax.plot(dates, exchange_rates, label=country, marker='')
 
 num_ticks = 10
 

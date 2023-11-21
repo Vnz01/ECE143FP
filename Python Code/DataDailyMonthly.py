@@ -166,7 +166,7 @@ fig, ax = plt.subplots()
 
 country = country + ' Exchange Rate with USD (' + fileString + ')' 
 
-ax.plot(dates, exchange_rates, label=country, marker='o')
+ax.plot(dates, exchange_rates, label=country, marker='')
 
 num_ticks = 10
 
