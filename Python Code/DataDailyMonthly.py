@@ -44,7 +44,7 @@ def monthApart(date1_str, date2_str):
 
     month_difference = (date2.year - date1.year) * 12 + date2.month - date1.month
 
-    return abs(month_difference) == 1
+    return abs(month_difference) >= 1
 
 data = []
 possibleCountry = []
@@ -105,32 +105,12 @@ while(filt != "1" and filt != "2"):
     filt = input()
     print(" ")
 
-# Ask user to filter dates or not
+# Ask user to filter dates or not and just does some date validation
 if(filt == "1"):
     start_date = "1971-01-01" if fileOpen == "1" else "1971-01-04"
     end_date = "2017-12-01"
 if(filt =="2"): 
-    if(fileOpen == "1"):
-        while(not looper3):
-            while(not looper1):
-                stringStart= "1971-01-01" if fileOpen == "1" else "1971-01-04"
-                print(f"Earliest is ({stringStart})")
-                print("Enter Start Date in format (YYYY-MM-DD):")
-                start_date = input()
-                print(" ")
-                looper1 = dateValidation(start_date, fileOpen)
-            while(not looper2):
-                print("Latest is (2017-12-01)")
-                print("enter END date in format (YYYY-MM-DD):")
-                end_date = input()
-                print(" ")
-                looper2 = dateValidation(end_date, fileOpen)
-            looper3 = monthApart(start_date,end_date)
-            if(not looper3):
-                print("Dates are not a month apart\n")
-                looper1 = False
-                looper2 = False
-    elif(fileOpen == "2"):
+    while(not looper3):
         while(not looper1):
             stringStart= "1971-01-01" if fileOpen == "1" else "1971-01-04"
             print(f"Earliest is ({stringStart})")
@@ -144,7 +124,15 @@ if(filt =="2"):
             end_date = input()
             print(" ")
             looper2 = dateValidation(end_date, fileOpen)
-
+        if(fileOpen == "1"):
+            looper3 = monthApart(start_date,end_date)
+            looper1 = False
+            looper2 = False
+            print("NOT A MONTH APART \n")
+        else:
+            looper3 = True
+    
+# FILL DATA into dates and exchanges rates and turns exchanges rates into floats
 dates = [entry[0] for entry in data]
 exchange_rates = [float(entry[2]) if entry[2].replace('.', '', 1).isdigit() else 0.0 for entry in data]
 
