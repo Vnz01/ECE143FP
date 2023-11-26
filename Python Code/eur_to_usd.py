@@ -29,23 +29,28 @@ date = []
 startDate = ""
 endDate = ""
 
+# OPEN csv file and write to csv_reader
 with open(f'../Downloaded Database/eur_to_usd.csv','r') as fileCSV:
     if(csv.reader(fileCSV)):
         csv_reader = csv.reader(fileCSV)
     else:
         raise Exception("Unable to read file")
     
+    # Skip headers
     next(csv_reader)
-
+    #split the data into dates and floats
     for row in csv_reader:
         date.append(row[0])
         rate.append(float(row[1]))
 
     fileCSV.close()
 
+# REVERSE
 rate = rate[::-1]
 date = date[::-1]
 
+
+# USER INPUT FOR START AND END DATE
 while(not dateValidation(startDate)):
     print("Between 01/02/1990 and 11/20/2023")
     print('Enter Start Date in format "MM/DD/YYYY":')
@@ -57,12 +62,14 @@ while(not dateValidation(endDate)):
     endDate = input()
     print("\n")
 
+# Turn input into date and time object to sort
 start_datetime = datetime.strptime(startDate, '%m/%d/%Y')
 end_datetime = datetime.strptime(endDate, '%m/%d/%Y')
 
 filtered_rate = []
 filtered_date = []
 
+#SORT THE VALUES
 for d, r in zip(date, rate):
     date_obj = datetime.strptime(d, '%m/%d/%Y')
     if start_datetime <= date_obj <= end_datetime:

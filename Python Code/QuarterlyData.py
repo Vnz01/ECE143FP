@@ -37,13 +37,14 @@ for row in data:
         exchange_rates.append(row[2])
 
 
-
+# PLOT dates and exchanges rates
 fig, ax = plt.subplots()
 
 country = chosenCountry + ' Exchange Rate with USD (Quarterly)' 
 
 ax.plot(dates, exchange_rates, label=country, marker='')
 
+# number of ticks you want for x axis
 num_ticks = 10
 
 if(len(dates) > num_ticks):
