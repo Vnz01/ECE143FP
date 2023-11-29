@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 import matplotlib.style as style 
 
-exchange_rates = pd.read_csv('euro-daily-hist_1999_2022.csv')
+exchange_rates = pd.read_csv('Eur_to_GB.csv')
 
 exchange_rates.head()
 exchange_rates.info()
