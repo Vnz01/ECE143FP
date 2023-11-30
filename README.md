@@ -12,6 +12,10 @@
 
 > Download zip file (run the python script, in terminal, needed to produce specific graphs accessing up to 16 different datasets)
 
+##
+
+> All are script files that ran on the terminal to produce graphs
+
 # What do they do?
 
 ## DataDailyMonthly.py:
