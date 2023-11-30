@@ -16,7 +16,7 @@ import plotly.express as px
 
 
 #Reading the data(csv file)
-exchange_rates_df = pd.read_csv('./euro-daily-hist_1999_2022.csv')
+exchange_rates_df = pd.read_csv('../Downloaded Database/euro-daily-hist_1999_2022.csv')
 exchange_rates_df.info()
 
 
