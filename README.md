@@ -49,3 +49,31 @@
 ## APIRequest.py:
 
 > Won't do anything. Script commented out. Although the script will call an API Request from treasury.gov to access specific filtered data. Not needed since we need mass amounts of data, and we don't want to flood open servers with large amounts of requests
+
+# Third-party modules
+
+> import requests
+
+##
+
+> import matplotlib.pyplot as plt
+
+##
+
+> import numpy
+
+##
+
+> import pandas
+
+##
+
+> import csv
+
+##
+
+> import re
+
+##
+
+> from datetime import datetime, timedelta
