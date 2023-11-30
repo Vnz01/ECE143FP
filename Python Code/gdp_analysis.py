@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 # Loading the provided dataset again
-file_path = '/content/euro-daily-hist_1999_2022.csv'
+file_path = '../Downloaded Database/euro-daily-hist_1999_2022.csv'
 rates = pd.read_csv(file_path)
 
 
