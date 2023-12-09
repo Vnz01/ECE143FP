@@ -1,79 +1,65 @@
 # ECE 143 - Exchange Rates during Significant Times
 
-## File Structure:
+This repository contains Python scripts for analyzing foreign exchange rates over specific periods, focusing on significant global events and their impact on currency values.
 
-> 2 Folders in the same directory, one titled Downloaded Database, another Python Code. These Python scripts call datasets that we extract from the web. Foreign Exchange rates over a certain time period
+## File Structure
 
-# How to run code?
+- **Downloaded Database**: Contains datasets extracted from the web.
+- **Python Code**: Python scripts for data analysis and graph generation.
 
-> Git Clone https://github.com/Vnz01/ECE143FP.git
+## How to Run the Code
 
-##
+1. Clone the repository:
 
-> Download zip file (run the python script, in terminal, needed to produce specific graphs accessing up to 16 different datasets)
+git clone https://github.com/Vnz01/ECE143FP.git
 
-##
 
-> All are script files that ran on the terminal to produce graphs
+2. Download the zip file and run the Python scripts in the terminal. These scripts produce specific graphs by accessing up to 16 different datasets.
 
-# What do they do?
+## Scripts Overview
 
-## DataDailyMonthly.py:
+### `DataDailyMonthly.py`
+- Reads `daily.csv` and `monthly.csv`.
+- Prompts the user to choose a file, country, filter options, and start/end dates.
+- Generates a graph comparing the chosen country's currency to USD.
+- Analyzes currency strength and trends.
 
-> Opens daily.csv and monthly.csv. Reads data and finds the unique countries available. Prompts, user to choose a daily or monthly file, a country, filter or not filter,start/end date. It outputs a graph with the chosen country currency compared to the USD. Used to analyze strength of currencies on specific dates, or make inferences on trends.
+### `Eur_to_GB.py`
+- Analyzes the EURO to GB exchange rate.
+- Highlights data during the Brexit era.
+- Provides detailed analysis of exchange rate fluctuations related to Brexit events.
 
-## Eur_to_GB.py:
+### `eur_to_usd.py`
+- Analyzes the EUR/USD exchange rate over a user-specified time period.
+- Handles edge cases and input errors (e.g., end date earlier than start date).
 
-> Opens Eur_to_GB.csv. After file is called, it outputs a graph of the EURO to the GB and highlights data during the time of the Brexit ERA. It also produces another graph, providing a closer look into the Brexit Era and highlights specific dates and events that happened during the time. Giving an analysis on how the exchange rate was affected at this time.
+### `gdp_analysis.py`
+- Analyzes 10 countries' currency strengths relative to the EURO.
+- Generates individual and collective graphs from `euro-daily-hist_1999_2022.csv`.
 
-## eur_to_usd.py:
+### `monthlyvol.py`
+- Analyzes average daily volatility per month in 2020.
+- Generates a histogram from `E2U(MinuteData2020).csv`.
+- Useful for COVID-era analysis.
 
-> This python script opens eur_to_usd.py. Users are prompt in the terminal to choose a specific start date and end date and outputs a graph of the EUR/USD over the time period specified. Closer analysis on dates and exchange rates. Edge cases and errors are accounted for, but there may be a bug with input end date being earlier than the input start date
+### `QuarterlyData.py`
+- Produces quarterly data for various countries and currencies compared to USD.
+- Sources data from the U.S. Treasury.
 
-## gdp_analaysis.py:
+### `volatility.py`
+- Calculates average daily volatility per year from 2012-2022.
+- Uses data from CSV files starting with `E2U`.
 
-> This python script opens euro-daily-hist_1999_2022.csv and produce graphs of 10 countries currency's relative strength compared to the EURO. Produces 10 individual graphs and one graph with all the data overlapping.
+### `APIRequest.py`
+- (Commented out) Would call an API request from treasury.gov.
+- Aimed to access specific filtered data but not used to avoid server overload.
 
-## monthlyvol.py:
+## Third-party Modules
 
-> This python scripts opens E2U(MinuteData2020).csv and produces a histogram for average daily volatility per month in 2020. Used for analysis for Covid Era.
-
-## QuarterlyData.py:
-
-> Python scripts outputs quarterly data for many different countries and currencies compared to USD. Very reliable data from the treasury although only quarterly data.
-
-## volatility.py:
-
-> Python scripts opens 11 different CSV files starting with E2U, to calculate the average daily volatility per year in the past decade. Starting from 2012-2022.
-
-## APIRequest.py:
-
-> Won't do anything. Script commented out. Although the script will call an API Request from treasury.gov to access specific filtered data. Not needed since we need mass amounts of data, and we don't want to flood open servers with large amounts of requests
-
-# Third-party modules
-
-> import requests
-
-##
-
-> import matplotlib.pyplot as plt
-
-##
-
-> import numpy
-
-##
-
-> import pandas
-
-##
-
-> import csv
-
-##
-
-> import re
-
-##
-
-> from datetime import datetime, timedelta
+- `requests`
+- `matplotlib.pyplot as plt`
+- `numpy`
+- `pandas`
+- `csv`
+- `re`
+- `datetime` from `datetime`, `timedelta`
